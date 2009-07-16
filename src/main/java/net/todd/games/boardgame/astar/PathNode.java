@@ -1,12 +1,23 @@
 package net.todd.games.boardgame.astar;
 
-
+/**
+ * Common unit to represent one search node.  Note: hashcode and equals only take location into account.
+ * 
+ * @author benjamin.lee
+ *
+ */
 class PathNode implements Comparable<PathNode> {
 	public PathNode parent;
 	public Point location;
 	public double g;
 	public double h;
 	
+	/**
+	 * @param parent parent PathNode (current shortest path to this node) which may change later
+	 * @param location where on the search grid this node lives
+	 * @param g true shortest path to this node from start point, via parent
+	 * @param h estimated path cost to end point from this node
+	 */
 	public PathNode(PathNode parent, Point location, double g, double h) {
 		this.parent = parent;
 		this.location = location;
@@ -14,6 +25,11 @@ class PathNode implements Comparable<PathNode> {
 		this.h = h;
 	}
 
+	/**
+	 * Computes f(x) = g(x) + h(x) : where x is this node
+	 * 
+	 * @return g+h
+	 */
 	public double f() {
 		return g + h;
 	}
@@ -44,6 +60,9 @@ class PathNode implements Comparable<PathNode> {
 		return true;
 	}
 
+	/**
+	 * compares PathNodes by their f(x) values for sorting
+	 */
 	public int compareTo(PathNode other) {
 		return (int)(f() * 100.0 - other.f() * 100.0);
 	}

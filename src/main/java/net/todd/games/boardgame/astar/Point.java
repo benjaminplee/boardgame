@@ -3,6 +3,12 @@ package net.todd.games.boardgame.astar;
 import javax.vecmath.Point2i;
 import javax.vecmath.Tuple2i;
 
+/**
+ * Wrapper class around Point2i adding some utility methods
+ * 
+ * @author benjamin.lee
+ *
+ */
 public class Point extends Point2i {
 	
 	private static final long serialVersionUID = -7152898373916421954L;

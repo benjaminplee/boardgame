@@ -57,7 +57,7 @@ public class StubAStarContext implements IAStarContext {
 		return 10;
 	}
 
-	public boolean traversable(Point point) {
+	public boolean isTraversable(Point point) {
 		return traversableSquares[point.getX()][point.getY()] == 0;
 	}
 

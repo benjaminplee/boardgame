@@ -8,7 +8,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Set;
-// TODO javadoc
+
+/**
+ * A* algorithm implementation for finding optimal paths between two points.  Situation particular are passed to the algorithm by way of
+ * the {@link IAStarContext} through the constructor and reused.  Particular points are passed to the findPath method.
+ * 
+ * @author benjamin.lee
+ *
+ */
 public class AStarPathFinder implements IPathFinder {
 	private final IAStarContext context;
 
@@ -16,6 +23,9 @@ public class AStarPathFinder implements IPathFinder {
 		this.context = context;
 	}
 
+	/**
+	 * Implements method from {@link IPathFinder}.
+	 */
 	public List<Point> findPath(Point start, Point end) {
 		assertPointIsInBounds(start);
 		assertPointIsInBounds(end);
@@ -111,6 +121,6 @@ public class AStarPathFinder implements IPathFinder {
 		        (point.getY() < 0) || 
 		        (point.getX() >= context.getWidth()) || 
 		        (point.getY() >= context.getHeight()) || 
-		        (!context.traversable(point));
+		        (!context.isTraversable(point));
 	}
 }

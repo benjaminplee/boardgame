@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
-// TODO javadoc
+
 public class AStarPathFinderTest {
 	private IPathFinder noDiagFinder;
 	private IPathFinder diagFinder;
